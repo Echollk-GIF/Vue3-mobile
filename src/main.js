@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import "amfe-flexible"
 import router from './router'
+import './styles/index.css'
 
 //在使用函数组件时，unplugin-vue-components 无法自动引入对应的样式，因此需要手动引入样式。
 // Toast
