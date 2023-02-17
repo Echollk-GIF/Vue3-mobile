@@ -30,8 +30,10 @@
 import { reactive, toRefs } from '@vue/reactivity'
 import { loginByPwd } from '../../api/user'
 import { showSuccessToast, showFailToast, showLoadingToast } from 'vant'
+import { useStore } from "vuex"
 
 function useSubmit (user) {
+  const store = useStore()
   const onSubmitByPwd = async () => {
     showLoadingToast({
       message: '登录中...',
@@ -39,6 +41,7 @@ function useSubmit (user) {
     })
     const res = await loginByPwd(user)
     if (res.data.code === 0) {
+      store.commit('setUserInfo', res.data)
       showSuccessToast('登录成功')
     } else {
       showFailToast('用户名或密码错误')
