@@ -1,16 +1,15 @@
-import { createStore } from "vuex"
-import { getItem, setItem } from '../utils/storage'
-const TOKEN_KEY = 'USER_INFO'
+import { createStore } from "vuex";
+import { getItem, setItem } from "../utils/storage";
+const TOKEN_KEY = "TOUTIAO_USER";
 const store = createStore({
   state: {
-    //存储当前登录用户信息，包含token等数据
-    userInfo: getItem(TOKEN_KEY)
+    user: getItem(TOKEN_KEY),
   },
   mutations: {
-    setUserInfo (state, data) {
-      state.userInfo = data
-      setItem(TOKEN_KEY, state.userInfo)
+    setUser(state, data) {
+      state.user = data;
+      setItem(TOKEN_KEY, state.user);
     },
   },
-})
-export default store
+});
+export default store;

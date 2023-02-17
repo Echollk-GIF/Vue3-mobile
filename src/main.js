@@ -1,20 +1,9 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import "amfe-flexible"
-import router from './router'
-import './styles/index.css'
-import store from "./store"
-//在使用函数组件时，unplugin-vue-components 无法自动引入对应的样式，因此需要手动引入样式。
-// Toast
-import 'vant/es/toast/style'
-// Dialog
-import 'vant/es/dialog/style'
-// Notify
-import 'vant/es/notify/style'
-// ImagePreview
-import 'vant/es/image-preview/style'
-
-const app = createApp(App)
-app.use(router)
-app.use(store)
-app.mount('#app')
+import { createApp } from "vue";
+import App from "./App.vue";
+import Vant from "vant";
+import "vant/lib/index.css";
+import "amfe-flexible";
+import router from "./router";
+import "./styles/index.css";
+import store from "./store";
+createApp(App).use(Vant).use(router).use(store).mount("#app");

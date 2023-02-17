@@ -1,24 +1,20 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-
+import { createRouter, createWebHashHistory } from "vue-router";
+// 1、创建路由规则
 const routes = [
   {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/login/index.vue')
+    path: "/login",
+    name: "login",
+    component: () => import("../views/login/index.vue"),
   },
   {
-    path: '/',
-    name: 'layout',
-    component: () => import('../views/layout/index.vue'),
+    path: "/",
+    name: "layout",
+    component: () => import("../views/layout/index.vue"),
     children: [
       {
-        path: "/",
-        redirect: "/home"
-      },
-      {
-        path: "/home",
-        name: 'home',
-        component: () => import("../views/home/index.vue")
+        path: "",
+        name: "home",
+        component: () => import("../views/home/index.vue"),
       },
       {
         path: "/qa",
@@ -35,13 +31,15 @@ const routes = [
         name: "my",
         component: () => import("../views/my/index.vue"),
       },
-    ]
-  }
-]
-
+    ],
+  },
+];
+// 2、创建路由实例
 const router = createRouter({
+  //createWebHistory
   history: createWebHashHistory(),
-  routes
-})
-
-export default router
+  routes,
+});
+export default router;
+// 3、创建登录组件
+// 4、指定出口
